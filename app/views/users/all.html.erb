@@ -1,0 +1,21 @@
+
+<a href="/users/<%= @user.id %>">Dashboard</a>
+<p><%=@user.first_name %> <%=@user.last_name%>'s Playlist </p>
+<table>
+	<thead>
+		<tr>
+		    <th>Artist</th>
+		    <th>Title</th>
+		    <th>Times Added</th>
+		</tr>
+	</thead>
+	<% @song.each do |s| %>
+	<tbody>
+	    <tr>
+		    <td><%= s.artist %> </td>
+		    <td><%= s.title %></td>
+		    <td><%=s.users.where(id:@user.id).count%></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
